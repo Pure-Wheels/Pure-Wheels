@@ -6,8 +6,10 @@ import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [UnoCSS({
-        injectReset: true
-    }), vue()],
-
+    outDir: 'docs',
+    integrations: [
+        UnoCSS({
+            injectReset: true
+        }), vue()
+    ],
 });

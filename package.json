@@ -21,6 +21,7 @@
     "@unocss/preset-web-fonts": "^0.63.6",
     "@unocss/transformer-directives": "^0.63.6",
     "@unocss/transformer-variant-group": "^0.63.6",
+    "sharp": "^0.33.5",
     "unocss": "^0.63.6"
   }
 }
