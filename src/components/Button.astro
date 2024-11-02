@@ -1,0 +1,46 @@
+---
+interface Props {
+	color?: "primary" | "foreground";
+	variant?: "button" | "outline";
+	class?: string;
+}
+
+const { color = "primary", variant = "button", class: className } = Astro.props;
+---
+
+<slot
+	name="wrapper"
+	class="btn"
+	class:list={[className, `btn--${variant}`, `btn--${color}`]}
+>
+	<button
+		class="btn"
+		class:list={[className, `btn--${variant}`, `btn--${color}`]}
+	>
+		<slot />
+	</button>
+</slot>
+<style>
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md;
+
+		&.btn--outline {
+			@apply b-1;
+			&.btn--primary {
+				@apply b-primary;
+			}
+			&.btn--foreground {
+				@apply b-foreground;
+			}
+		}
+
+		&.btn--button {
+			&.btn--primary {
+				@apply bg-primary color-primary-foreground;
+			}
+			&.btn--foreground {
+				@apply bg-foreground color-foreground-foreground;
+			}
+		}
+	}
+</style>
